@@ -29,7 +29,7 @@ const NavbarComponent = ({ history }) => {
                 }
                 {getUser() && (
                     <li className="nav-item pr-3 pt-3 pb-3">
-                        <button className="nav-link" onClick={() => logout(() => history.push("/"))}>SIGN OUT</button>
+                        <button className="nav-link" onClick={() => logout(() => history.push("/login"))}>SIGN OUT</button>
                     </li>
                 )}
             </ul>

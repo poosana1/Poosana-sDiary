@@ -24,8 +24,8 @@ const SingleComponent = (props) => {
       <br></br>
       <h1>{blog.title}</h1>
       <br></br>
-      <p>{blog.content}</p>
-      <p className="text-muted">author: {blog.author} , published: {new Date(blog.createdAt).toLocaleString()}</p>
+      <div dangerouslySetInnerHTML={{ __html: blog.content }}></div>
+      <p className="text-muted" style={{textAlign:'left'}}>author: {blog.author} , published: {new Date(blog.createdAt).toLocaleString()}</p>
     </div>
   );
 };

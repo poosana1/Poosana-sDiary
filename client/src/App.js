@@ -62,18 +62,16 @@ function App() {
           <div className=" blog-container custom-col" key={index}>
             <Link to={`/blog/${blog.slug}`}><h2 style={{ textAlign: 'center' }}>{blog.title}</h2></Link>
             <br />
-            <p>
-              {blog.content.substring(0, 260)}
-              {blog.content.length > 260 && "[...]"}
-            </p>
-
+            <div  dangerouslySetInnerHTML={{ __html: blog.content.substring(0, 260) }}></div>
+            {blog.content.length > 260 && <p style={{ textAlign: 'center' }}>[...]</p>}
+            <p className="text-muted author-info">author: {blog.author} , published: {new Date(blog.createdAt).toLocaleString()}</p>
             {getUser() && (
               <div className="button-container">
                 <Link className="btn btn-outline-success" to={`/blog/edit/${blog.slug}`}>Edit</Link> &nbsp;
                 <button className="btn btn-outline-danger" onClick={() => confirmDelete(blog.slug)}>Delete</button>
               </div>
             )}
-            <p className="text-muted author-info">author: {blog.author} , published: {new Date(blog.createdAt).toLocaleString()}</p>
+
           </div>
         ))}
       </div>

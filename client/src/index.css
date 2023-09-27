@@ -105,11 +105,10 @@ code {
 
 .button-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-  
+  justify-content: center; 
+  margin-bottom: 10px; 
 }
+
 
 .author-info {
   margin-top: auto; 
@@ -120,4 +119,14 @@ code {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
+}
+
+.ql-container.ql-snow {
+  background-color: white;
+  
+}
+
+.ql-toolbar.ql-snow {
+  background-color: white;
+  border-color: black;
 }
