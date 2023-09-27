@@ -22,7 +22,7 @@ function App() {
 
   const confirmDelete = (slug) => {
     Swal.fire({
-      title: "คุณต้องการลบบทความหรือไม่",
+      title: "Do you want to delete this diary?",
       icon: "warning",
       showCancelButton: true
     }).then((result) => {
@@ -37,43 +37,48 @@ function App() {
   }
   //ลบบทความ
   const deleteBlog = (slug) => {
-    axios.delete(`http://localhost:5500/api/blog/${slug}`,{
-      headers:{
-        Authorization:`Bearer ${getToken()}`
+    axios.delete(`http://localhost:5500/api/blog/${slug}`, {
+      headers: {
+        Authorization: `Bearer ${getToken()}`
       }
-    }).then(response=>{
+    }).then(response => {
       Swal.fire(
-        "Deleted!",
-        "ลบบทความเรียบร้อย",
+        "Notification",
+        "Delete Successfully",
         "success"
       )
       fetchData()
-    }).catch(err=>{
-        console.log(err)
+    }).catch(err => {
+      console.log(err)
     })
   }
 
   return (
     <div className="container p-5">
       <NavbarComponent />
-      {blogs.map((blog, index) => (
-        <div className="row" key={index}>
-          <div className="col pt-3 pb-2">
-            <Link to={`/blog/${blog.slug}`}><h2>{blog.title}</h2></Link>
+      <br />
+      <div className="row">
+        {blogs.map((blog, index) => (
+          <div className=" blog-container custom-col" key={index}>
+            <Link to={`/blog/${blog.slug}`}><h2 style={{ textAlign: 'center' }}>{blog.title}</h2></Link>
+            <br />
             <p>
               {blog.content.substring(0, 260)}
               {blog.content.length > 260 && "[...]"}
             </p>
-            <p className="text-muted">author: {blog.author} , published: {new Date(blog.createdAt).toLocaleString()}</p>
+
             {getUser() && (
-              <div><Link className="btn btn-outline-success" to ={`/blog/edit/${blog.slug}`}>แก้ไขบทความ</Link> &nbsp;
-              <button className="btn btn-outline-danger" onClick={() => confirmDelete(blog.slug)}>ลบบทความ</button></div>
+              <div className="button-container">
+                <Link className="btn btn-outline-success" to={`/blog/edit/${blog.slug}`}>Edit</Link> &nbsp;
+                <button className="btn btn-outline-danger" onClick={() => confirmDelete(blog.slug)}>Delete</button>
+              </div>
             )}
+            <p className="text-muted author-info">author: {blog.author} , published: {new Date(blog.createdAt).toLocaleString()}</p>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;

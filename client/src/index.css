@@ -5,9 +5,119 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F6F5F0;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.container h4 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: black;
+}
+
+.container {
+  max-width: 1400px;
+}
+
+.labelLeft {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: black;
+  color: #F6F5F0;
+  border-color: black;
+  padding: 10px 30px;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
+.form-control {
+  border-color: black;
+}
+
+.nav {
+  border-color: black;
+}
+
+.nav-link {
+  color: black;
+  font-weight: bold
+}
+
+.container-login{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-control {
+  width: 100%;
+  margin: auto;
+  border-radius: 0px;
+  border-width: 2px;
+}
+
+.form-group{
+  margin-bottom: 10px;
+}
+
+.container-login {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-container {
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border-width: 2px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+.custom-col {
+  flex: 0 0 32%; 
+  max-width: 32%; 
+}
+
+.text-muted{
+  margin-top: auto;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  
+}
+
+.author-info {
+  margin-top: auto; 
+  margin-bottom: 10px; 
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
 }

@@ -24,18 +24,22 @@ const EditComponent=(props)=>{
     const showUpdatedForm=()=>(
         <form onSubmit = {submitForm}>
                 <div className = "form-group">
-                    <label>ชื่อบทความ</label>
+                    <label>Title</label>
                     <input type="text" className = "form-control" value = {title} onChange={inputValue("title")}/>
                 </div>
+                <br></br>
                 <div className = "form-group">
-                    <label>เนื้อหาบทความ</label>
+                    <label>Details</label>
                     <textarea type="text" className = "form-control" value = {content} onChange={inputValue("content")}/>
                 </div>
+                <br></br>
                 <div className = "form-group">
-                    <label>ผู้แต่ง</label>
+                    <label>Author</label>
                     <input type="text" className = "form-control" value = {author} onChange={inputValue("author")}/>
                 </div><br></br>
-                <input type ="submit" value="อัพเดท" className = "btn btn-primary"></input>
+                <div className="form-group text-center">
+                <input type ="submit" value="UPDATE" className = "btn btn-primary"></input>
+                </div>
             </form>
     )
 
@@ -48,11 +52,12 @@ const EditComponent=(props)=>{
             }
         }).then(response=>{
             Swal.fire(
-                'แจ้งเตือน',
-                'แก้ไขข้อมูลเรียบร้อย',
+                'Notification',
+                'Edit Successfully',
                 'success'
             )
             const {title,content,author,slug} = response.data
+            
             //เคลียร์ช่อง input
             setState({...state,title,content,author,slug})
         }).catch(err=>{
@@ -71,7 +76,8 @@ const EditComponent=(props)=>{
     return(
         <div className = "container p-5">
             <NavbarComponent></NavbarComponent>
-            <h1>เขียนบทความ</h1> 
+            <br/>
+            <h1 style={{textAlign:'center'}}>EDIT YOUR DIARY</h1> 
             {showUpdatedForm()}
             
         </div>

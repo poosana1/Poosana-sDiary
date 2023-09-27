@@ -12,7 +12,7 @@ exports.login=(req,res)=>{
         return res.json({token,username})
     }else{
         return res.status(400).json({
-            error:"รหัสผ่านไม่ถูกต้อง"
+            error:"Wrong Password"
         })
     }
 }

@@ -15,10 +15,10 @@ exports.create = (req,res) => {
   // validate /ตรวจสอบความถูกต้องข้อมูล
   switch (true) {
     case !title:
-      return res.status(400).json({ error: "กรุณาป้อนชื่อบทความ" })
+      return res.status(400).json({ error: "Please fill article topic" })
       break;
     case !content:
-      return res.status(400).json({ error: "กรุณาป้อนเนื้อหาบทความ" })
+      return res.status(400).json({ error: "Please fill article detail" })
       break;
   }
 
@@ -27,7 +27,7 @@ exports.create = (req,res) => {
     .then(blogSuccess => {
       res.json(blogSuccess);
     }).catch(err => {
-      res.status(400).json({ error: "มีชื่อบทความซ้ำกัน" });
+      res.status(400).json({ error: "There are duplicated article names" });
     })
 }
 //ดึงข้อมูลบทความทั้งหมด

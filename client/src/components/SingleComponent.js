@@ -21,7 +21,9 @@ const SingleComponent = (props) => {
   return (
     <div className="container p-5">
       <NavbarComponent/>
+      <br></br>
       <h1>{blog.title}</h1>
+      <br></br>
       <p>{blog.content}</p>
       <p className="text-muted">author: {blog.author} , published: {new Date(blog.createdAt).toLocaleString()}</p>
     </div>
