@@ -62,7 +62,9 @@ const EditComponent=(props)=>{
                 'Notification',
                 'Edit Successfully',
                 'success'
-            )
+            ).then(()=>{
+                props.history.push('/')
+            })
             const {title,content,author,slug} = response.data
             
             //เคลียร์ช่อง input

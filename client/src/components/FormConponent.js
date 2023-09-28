@@ -6,8 +6,13 @@ import { getUser } from "../services/authorize"
 import { getToken } from "../services/authorize"
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { useHistory } from "react-router-dom";
+
 
 const FormComponent = () => {
+
+    const history = useHistory();
+
     //input
     const [state, setState] = useState({
         title: "",
@@ -39,7 +44,9 @@ const FormComponent = () => {
                 'Notification',
                 'Save Successfully',
                 'success'
-            )
+            ).then(()=>{
+                history.push("/")
+            })
             //เคลียร์ช่อง input
             setState({ ...state, title: "", content: "", author: "" })
         }).catch(err => {
