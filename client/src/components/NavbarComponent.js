@@ -1,16 +1,16 @@
 import { Link, withRouter } from "react-router-dom"
 import { getUser, logout } from "../services/authorize"
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+
 
 const NavbarComponent = ({ history }) => {
 
     return (
         <nav>
-            <ul className="nav nav-tabs">
-
-                <li className="nav-item pr-3 pt-3 pb-3">
-                    <i className="bi bi-three-dots"></i>
+            <ul className="nav">
+                <li className="nav-item icon-item pr-3 pt-3 pb-3">
+                    <MoreHorizIcon />
                 </li>
-
                 <li className="nav-item pr-3 pt-3 pb-3">
                     <Link to="/" className="nav-link">HOME</Link>
                 </li>

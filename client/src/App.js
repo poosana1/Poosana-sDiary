@@ -6,8 +6,18 @@ import { Link } from "react-router-dom"
 import Swal from "sweetalert2"
 import { getToken, getUser } from "./services/authorize";
 
+
 function App() {
   const [blogs, setBlogs] = useState([])
+  const [colorIndex, setColorIndex] = useState(0)
+
+  const colors = ["#FCF6BD", "#D0F4DE", "#C0E4F6", "#FFBBDA", "#E8CFF8" ,"#A8D1E7", "#B3DBD8", "#F8F5FD", "#FEE5E0", "#FFBFC5"]
+
+  // function getRandomColor() {
+  //   const randomIndex = Math.floor(Math.random() * colors.length)
+  //   return colors[randomIndex]
+  // }
+  
 
   //ดึงข้อมูลบทความทั้งหมดจาก API
   const fetchData = () => {
@@ -54,16 +64,23 @@ function App() {
   }
 
   return (
+    <>
+    <NavbarComponent />
     <div className="container p-5">
-      <NavbarComponent />
+      <br />
+      <br/>
+      <h1 style={{textAlign:'center'}}>Team's Post it<span class="material-symbols-outlined">note_stack</span></h1>
       <br />
       <div className="row">
         {blogs.map((blog, index) => (
-          <div className=" blog-container custom-col" key={index}>
+          <div className=" blog-container custom-col" key={index} 
+          // style={{backgroundColor: getRandomColor()}}
+          style={{ backgroundColor: colors[index % colors.length] }}
+          >
             <Link to={`/blog/${blog.slug}`}><h2 style={{ textAlign: 'center' }}>{blog.title}</h2></Link>
             <br />
-            <div  dangerouslySetInnerHTML={{ __html: blog.content.substring(0, 260) }}></div>
-            {blog.content.length > 260 && <p style={{ textAlign: 'center' }}>[...]</p>}
+            <div  dangerouslySetInnerHTML={{ __html: blog.content.substring(0, 150) }}></div>
+            {blog.content.length > 150 && <p style={{ textAlign: 'center' }}>[...]</p>}
             <p className="text-muted author-info">author: {blog.author} , published: {new Date(blog.createdAt).toLocaleString()}</p>
             {getUser() && (
               <div className="button-container">
@@ -76,6 +93,7 @@ function App() {
         ))}
       </div>
     </div>
+    </>
   )
 }
 
