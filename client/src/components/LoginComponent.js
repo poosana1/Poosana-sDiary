@@ -5,7 +5,6 @@ import Swal from "sweetalert2"
 import { authenticate } from "../services/authorize"
 import { withRouter } from "react-router-dom"
 import { getUser } from "../services/authorize"
-import styles from './CSS/styles.module.css'
 
 //props จะเก็บข้อมูลของ path ที่ทำงาน
 const LoginComponent = (props) => {

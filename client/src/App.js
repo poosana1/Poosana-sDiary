@@ -9,7 +9,6 @@ import { getToken, getUser } from "./services/authorize";
 
 function App() {
   const [blogs, setBlogs] = useState([])
-  const [colorIndex, setColorIndex] = useState(0)
 
   const colors = ["#FCF6BD", "#D0F4DE", "#C0E4F6", "#FFBBDA", "#E8CFF8" ,"#A8D1E7", "#B3DBD8", "#F8F5FD", "#FEE5E0", "#FFBFC5"]
 
@@ -32,7 +31,7 @@ function App() {
 
   const confirmDelete = (slug) => {
     Swal.fire({
-      title: "Do you want to delete this diary?",
+      title: "Do you want to delete this note?",
       icon: "warning",
       showCancelButton: true
     }).then((result) => {
@@ -79,8 +78,8 @@ function App() {
           >
             <Link to={`/blog/${blog.slug}`}><h2 style={{ textAlign: 'center' }}>{blog.title}</h2></Link>
             <br />
-            <div  dangerouslySetInnerHTML={{ __html: blog.content.substring(0, 150) }}></div>
-            {blog.content.length > 150 && <p style={{ textAlign: 'center' }}>[...]</p>}
+            <div  dangerouslySetInnerHTML={{ __html: blog.content.substring(0, 250) }}></div>
+            {blog.content.length > 150 && <p style={{ textAlign: 'center' }}><Link to ={`/blog/${blog.slug}`} >...continue reading</Link></p>}
             <p className="text-muted author-info">author: {blog.author} , published: {new Date(blog.createdAt).toLocaleString()}</p>
             {getUser() && (
               <div className="button-container">

@@ -124,7 +124,7 @@ code {
 }
 
 .blog-container:hover {
-  transform: scale(1.05);
+  transform: scale(1.07);
 }
 
 
@@ -167,9 +167,9 @@ code {
   box-shadow: 0 1px 4px rgba(0,0,0,0.4);
   border: solid 1px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
-  background: linear-gradient(45deg, #fab77233, #F6F5F0, #fab77233);
+  background: linear-gradient(45deg, #fab77233, #F6F5F0, #ff800033);
   background-size: 200% 200%;
-  animation: gradientShift 30s infinite;
+  animation: gradientShift 10s infinite;
 }
 
 .login-box:hover {
